@@ -1,4 +1,4 @@
-# RGB-event docking port
+# Satellite Docking using RGB and Event Cameras
 
 ![Docking port](Thumb.jpg)
 
