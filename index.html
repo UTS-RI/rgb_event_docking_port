@@ -1,56 +1,237 @@
-
 <!DOCTYPE html>
-<body>
-    <header>
-        <h1>Mixing Data-driven and Geometric Models for Satellite Docking Port State Estimation using an RGB or Event Camera</h1>
-         </header>
-    <main>
-        <section id="authors">
-            <h2>Authors</h2>
-            <p>
-                Cedric Le Gentil</a><sup>1</sup>, Jack Naylor</a><sup>2</sup>, Nuwan Munasinghe</a><sup>1</sup>, Jasprabhjit Mehami</a><sup>2</sup>, Benny Dai</a><sup>1</sup>, Mikhail Asavkin</a><sup>3</sup>, Donald G. Dansereau</a><sup>2</sup>, Teresa Vidal-Calleja</a><sup>1</sup>
-            </p>
-            <div class="is-size-5 publication-authors">
-                <span class="author-block"><sup>1</sup>University of Technology Sydney<br><sup>2</sup>The University of Sydney<br><sup>3</sup>ANT61</span>
-            </div>
-            </header>
-            <main>
-                <section id="abstract">
-                    <h2>Abstract</h2>
-                    <p>
-                        In-orbit automated servicing is a promising path towards lowering the cost of satellite operations and reducing the amount of orbital debris. For this purpose, we present a pipeline for automated satellite docking port detection and state estimation using monocular vision data from standard RGB sensing or an event camera. Rather than taking snapshots of the environment, an event camera has independent pixels that asynchronously respond to light changes, offering advantages such as high dynamic range, low power consumption and latency. This work focuses on satellite-agnostic operations (only a geometric knowledge of the actual port is required) using the recently released Lockheed Martin Mission Augmentation Port (LM-MAP) as the target. By leveraging shallow data-driven techniques to preprocess the incoming data to highlight the LM-MAP’s reflective navigational aids and then using basic geometric models for state estimation, we present a lightweight and data-efficient pipeline that can be used independently with either RGB or event cameras.
-                    </p>
-                </section>
-                <section id="video">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/SuDh-xhnaVY?si=4WK1LZ36q-Pxav6M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </section>
-                <section id="links">
-                    <h2>Links</h2>
-                    <p><a href="https://github.com/UTS-RI/rgb_event_docking_port" target="_blank"></a></p>
-                    <p><a href="https://uts-ri.github.io/rgb_event_docking_port/" target="_blank">Dataset and Project Page</a></p>
-                </section>
-                <section id="acknowledgement">
-                    <h2>Acknowledgement</h2>
-                    <p>
-                        This project was supported by NSW Space Research Network Pilot Project 2023.
-                    </p>
-                </section>
-            </main>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Mixing Data-driven and Geometric Models for Satellite Docking Port State Estimation using an RGB or Event Camera">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mixing Data-driven and Geometric Models for Satellite Docking Port State Estimation using an RGB or Event Camera</title>
 
- <!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>
-      @inproceedings{legentilicra2025,
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://uts-ri.github.io/rgb_event_docking_port/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Mixing Data-driven and Geometric Models for Satellite Docking Port State Estimation using an RGB or Event Camera</h1>
+            <h2 class="subtitle is-4 publication-title">ICRA 2025</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/clegenti">Cedric Le Gentil</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://nackjaylor.github.io">Jack Naylor</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://uts-ri.github.io/rgb_event_docking_port/">Nuwan Munasinghe</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://uts-ri.github.io/rgb_event_docking_port/">Jasprabhjit Mehami</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://uts-ri.github.io/rgb_event_docking_port/">Benny Dai</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.ant61.com/">Mikhail Asavkin</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://roboticimaging.org/">Donald G. Dansereau</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://profiles.uts.edu.au/Teresa.VidalCalleja">Teresa Vidal-Calleja</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Robotics Institute, University of Technology Sydney</span>
+            <span class="author-block"><sup>2</sup>Australian Centre for Robotics and School of Aerospace, Mechanical and Mechatronic Engineering, The University of Sydney</span><span class="author-block"><sup>1</sup>ANT61</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://uts-ri.github.io/rgb_event_docking_port/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2409.15581"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=SuDh-xhnaVY"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://ses.library.usyd.edu.au/handle/2123/33938"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+<img src="Thumb.jpg" style="width: 75%; display: block; margin: 0 auto;" alt="Lockheed Martin Mission Augmentation Port">
+      <h2 class="subtitle has-text-centered">
+        We propose a lightweight, satellite-agnostic pipeline for docking port detection and pose estimation using standard or event-based monocular vision, enabling efficient and robust in-orbit servicing.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+In-orbit automated servicing is a promising path towards lowering the cost of satellite operations and reducing the amount of orbital debris. For this purpose, we present a pipeline for automated satellite docking port detection and state estimation using monocular vision data from standard RGB sensing or an event camera. Rather than taking snapshots of the environment, an event camera has independent pixels that asynchronously respond to light changes, offering advantages such as high dynamic range, low power consumption and latency. This work focuses on satellite-agnostic operations (only a geometric knowledge of the actual port is required) using the recently released Lockheed Martin Mission Augmentation Port (LM-MAP) as the target. By leveraging shallow data-driven techniques to preprocess the incoming data to highlight the LM-MAP’s reflective navigational aids and then using basic geometric models for state estimation, we present a lightweight and data-efficient pipeline that can be used independently with either RGB or event cameras.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/SuDh-xhnaVY?si=4WK1LZ36q-Pxav6M"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{legentilicra2025,
         title={Mixing Data-driven and Geometric Models for Satellite Docking Port State Estimation using an RGB or Event Camera}, 
         author={Cedric Le Gentil and Jack Naylor and Nuwan Munasinghe and Jasprabhjit Mehami and Benny Dai and Mikhail Asavkin and Donald G. Dansereau and Teresa Vidal-Calleja},
         year={2025},
         booktitle={IEEE International Conference on Robotics and Automation},
-        }
-      </code></pre>
-    </div>
+        }</code></pre>
+  </div>
 </section>
-<!--End BibTex citation -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2409.15581">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/UTS-RI/rgb_event_docking_port" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+          </p>
+          <p>
+            This webpage was based on source code from the excellent <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
